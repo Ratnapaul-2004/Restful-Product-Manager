@@ -11,19 +11,22 @@ A simple RESTful API with a lightweight web interface to manage products, built 
 - Method override for PUT and DELETE via forms
 
 ## Project Structure
-Rest_API/
+<pre lang="markdown"><code> ``` Rest_API/
 ├── models/
-│ └── Product.js
+│   └── Product.js
 ├── routes/
-│ └── productRoutes.js
+│   └── productRoutes.js
 ├── views/
-│ ├── addProduct.ejs
-│ ├── editProduct.ejs
-│ ├── listProducts.ejs
-│ └── viewProduct.ejs
+│   ├── addProduct.ejs
+│   ├── editProduct.ejs
+│   ├── listProducts.ejs
+│   └── viewProduct.ejs
 ├── .env
+├── .gitignore
 ├── server.js
 ├── package.json
+└── README.md ``` </code></pre>
+
 
 ## Tech Stack
 
