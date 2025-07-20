@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
+const authMiddleware = require('../middleware/authMiddleware');
 
+router.use(authMiddleware);
 
 //Create product
 router.get('/new', (req, res) => {
@@ -17,7 +19,10 @@ router.post('/', async (req, res) => {
 //Get all products
 router.get('/', async (req, res) => {
   const products = await Product.find();
-  res.render('listProducts', {products});
+  res.render('listProducts', {
+    products,
+    username: req.user.username
+  });
 });
 
 //Get a product
