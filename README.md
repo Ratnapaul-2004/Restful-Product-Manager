@@ -20,6 +20,8 @@ A simple RESTful API with a lightweight web interface to manage products, built 
 
 - 🛡️ Protected routes using middleware
 
+- 🖼️ **Product image upload** and display 
+
 ## Project Structure
 <pre lang="markdown"><code> 
 ``` 
