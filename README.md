@@ -36,17 +36,17 @@ Rest_API/
 │   └── authRoutes.js
 ├── middleware/
 │   ├── authMiddleware.js
-|   └── errorHandler.js
+|   └── errorHandler.js        ← centralized error handling mechanism
 ├── views/
 │   ├── addProduct.ejs
 │   └── editProduct.ejs
 │   └── listProducts.ejs
-|   └── error.ejs
+|   └── error.ejs            
 │   └── login.ejs
 │   └── register.ejs
 │   └── viewProduct.ejs
 ├── public/
-│   └── uploads/             ← stores product images
+│   └── uploads/               ← stores product images
 ├── .env
 ├── .gitignore
 ├── package-lock.json
