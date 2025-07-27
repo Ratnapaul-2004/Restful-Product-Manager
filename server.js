@@ -11,6 +11,8 @@ dotenv.config();
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes'); 
 
+const errorHandler = require('./middleware/errorHandler');
+
 const app = express();
 
 const port = process.env.port;
@@ -32,5 +34,7 @@ app.set('views', path.join(__dirname,'views'));
 
 app.use('/', authRoutes);
 app.use('/products', productRoutes);
+
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server listening to port ${port}`));

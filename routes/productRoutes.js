@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({storage: storage});
+const upload = multer({storage});
 
 //Create product
 router.get('/new', (req, res) => {
@@ -27,10 +27,15 @@ router.get('/new', (req, res) => {
 });
 
 router.post('/', upload.single('image'), async (req, res) => {
-  const { name, price } = req.body;
-  const imagePath = req.file ? req.file.filename : '';
-  await Product.create({ name, price, image: imagePath });
-  res.redirect('/products');
+  try {
+    const { name, price } = req.body;
+    const imagePath = req.file ? req.file.filename : '';
+    await Product.create({ name, price, image: imagePath });
+    res.redirect('/products');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
 });
 
 //Get all products
@@ -44,17 +49,16 @@ router.get('/', async (req, res) => {
 
 //Get a product
 router.get('/:id', async (req, res) => {
-  const product = await Product.findById(req.params.id);
-  if(!product) return res.status(404).json({message: 'Product not found'});
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: 'Product not found' });
 
-  if(req.file) {
     const imagePath = path.join(__dirname, '../public/uploads', product.image);
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);  // delete old image if needed
-    }
-    product.image = req.file.filename;
     const imageExists = product.image && fs.existsSync(imagePath);
-    res.render('viewProduct', {product, imageExists});
+    res.render('viewProduct', { product, imageExists });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
   }
 });
 
@@ -79,18 +83,23 @@ router.put('/:id', upload.single('image'), async (req, res) => {
     if (!product) return res.status(404).send('Product not found');
 
     // Delete old image if new one is uploaded
-    if (req.file) {
-      const oldImagePath = path.join(__dirname, '../public/uploads', product.image);
-      if (fs.existsSync(oldImagePath)) {
-        fs.unlinkSync(oldImagePath);
-      }
-      product.image = req.file.filename;
-    }
 
-    product.name = name;
-    product.price = price;
-    await product.save();
-    res.redirect('/products');
+      if (req.file) {
+        if (product.image && product.image.trim() !== '') {
+          const oldImagePath = path.join(__dirname, '../public/uploads', product.image);
+
+          // Make sure it's a file, not the uploads folder
+          if (fs.existsSync(oldImagePath) && fs.lstatSync(oldImagePath).isFile()) {
+            fs.unlinkSync(oldImagePath);
+          }
+        }
+        product.image = req.file.filename;
+      }
+
+      product.name = name;
+      product.price = price;
+      await product.save();
+      res.redirect('/products');
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
@@ -102,6 +111,5 @@ router.delete('/:id', async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
   res.redirect('/products');
 });
-
 
 module.exports = router;

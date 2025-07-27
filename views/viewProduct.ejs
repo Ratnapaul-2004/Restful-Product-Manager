@@ -7,15 +7,15 @@
 </head>
 
 <body>
-  <div class="container mt-5 d-flex justify-content-center">
-    <div class="col-md-6">
+  <div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="col-md-6 offset-md-3">
       <h2 class="mb-4 text-center">Product Details</h2>
       <div class="card p-4 shadow-sm">
         <h4><strong>Name:</strong> <%= product.name %></h4>
         <p><strong>Price:</strong> ₹<%= product.price %></p>
         <p><strong>Product ID:</strong> <code class="text-danger"><%= product._id %></code></p>
 
-         <% if (imageExists) { %>
+         <% if (imageExists && product.image) { %>
           <div class="text-center mb-3">
             <img src="/uploads/<%= product.image %>" alt="Product Image" class="img-fluid rounded" style="max-height: 250px;">
           </div>
