@@ -89,7 +89,7 @@ Rest_API/
 
 - Product Page
 
-<img width="1920" height="1016" alt="Products" src="https://github.com/user-attachments/assets/78829a62-f682-4e65-bb18-e2d51abc9bf4" />
+<img width="1920" height="1015" alt="Products" src="https://github.com/user-attachments/assets/571e3205-bb81-4c4d-8e48-7f7577b9943f" />
 
 
 - Product Detail Page
