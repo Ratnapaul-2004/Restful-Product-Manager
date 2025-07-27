@@ -14,6 +14,15 @@
         <h4><strong>Name:</strong> <%= product.name %></h4>
         <p><strong>Price:</strong> ₹<%= product.price %></p>
         <p><strong>Product ID:</strong> <code class="text-danger"><%= product._id %></code></p>
+
+         <% if (imageExists) { %>
+          <div class="text-center mb-3">
+            <img src="/uploads/<%= product.image %>" alt="Product Image" class="img-fluid rounded" style="max-height: 250px;">
+          </div>
+        <% } else { %>
+            <p class="text-center text-muted">No image available</p>
+        <% } %>
+
         <div class="d-flex justify-content-center gap-3 mt-3">
           <a href="/products/<%= product._id %>/edit" class="btn btn-warning btn-sm px-4">Edit</a>
           <a href="/products" class="btn btn-secondary btn-sm px-4">Back</a>
