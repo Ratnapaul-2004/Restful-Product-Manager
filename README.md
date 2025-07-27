@@ -4,23 +4,25 @@ A simple RESTful API with a lightweight web interface to manage products, built 
 
 ## Features
 
-- ✅ Full CRUD operations on products
+- ✅ Full **CRUD** operations on products
 
-- 🌐 RESTful API endpoints
+- 🌐 RESTful **API endpoints** 
 
-- 🎨 Beautiful UI using EJS + Bootstrap 5
+- 🎨 Beautiful **UI using EJS + Bootstrap 5**
+  
+- 🗄️ **MongoDB** with Mongoose ODM
 
-- 🗄️ MongoDB with Mongoose ODM
+- 🔁 **Method override** for PUT and DELETE via HTML forms
 
-- 🔁 Method override for PUT and DELETE via HTML forms
+- 🔐 **JWT-based user authentication**  
 
-- 🔐 JWT-based user authentication
+- 👤 **Login, Register & Logout** functionality
 
-- 👤 Login, Register & Logout functionality
+- 🛡️ **Protected routes** using middleware
 
-- 🛡️ Protected routes using middleware
+- 🖼️ **Product image upload** and display
 
-- 🖼️ **Product image upload** and display 
+- ⚠️ Graceful **error handling** and fallbacks
 
 ## Project Structure
 <pre lang="markdown"><code> 
@@ -33,20 +35,24 @@ Rest_API/
 │   ├── productRoutes.js
 │   └── authRoutes.js
 ├── middleware/
-│   └── authMiddleware.js
+│   ├── authMiddleware.js
+|   └── errorHandler.js
 ├── views/
 │   ├── addProduct.ejs
-│   ├── editProduct.ejs
-│   ├── listProducts.ejs
-│   ├── login.ejs
-│   ├── register.ejs
+│   └── editProduct.ejs
+│   └── listProducts.ejs
+|   └── error.ejs
+│   └── login.ejs
+│   └── register.ejs
 │   └── viewProduct.ejs
+├── public/
+│   └── uploads/             ← stores product images
 ├── .env
 ├── .gitignore
-├── server.js
-├── package.json
 ├── package-lock.json
-└── README.md
+├── package.json
+├── README.md
+├── server.js
 ```</code></pre>
 
 
@@ -78,24 +84,35 @@ Rest_API/
 
 - Add Product Page
 
-<img width="1920" height="1016" alt="Product_Add" src="https://github.com/user-attachments/assets/d3f43ed5-599d-4a1a-a45c-546118d7f441" />
+<img width="1920" height="1017" alt="Product_Add" src="https://github.com/user-attachments/assets/97235aad-f881-4fa1-bba7-b8c9c4d8141c" />
 
 
 - Product Page
 
-<img width="1920" height="1019" alt="Product" src="https://github.com/user-attachments/assets/4cb4ab48-3833-473b-bc69-fb4f6d25dfaf" />
+<img width="1920" height="1016" alt="Products" src="https://github.com/user-attachments/assets/78829a62-f682-4e65-bb18-e2d51abc9bf4" />
 
 
 - Product Detail Page
 
-<img width="1920" height="1016" alt="Product_Detail" src="https://github.com/user-attachments/assets/e0ac5382-7d8c-4c8a-a3aa-d2201d2b2422" />
+<img width="1920" height="1015" alt="Product_Detail" src="https://github.com/user-attachments/assets/3cacadad-f122-4477-87d4-8a7a449e2b41" />
 
 
 - Edit Product Page
 
-<img width="1920" height="1019" alt="Product_Edit" src="https://github.com/user-attachments/assets/8e7b24ff-6e02-48af-9477-8f2456faaa43" />
+<img width="1920" height="1019" alt="Product_Edit" src="https://github.com/user-attachments/assets/997183b7-b66d-4e1e-9ad5-e90d2e296898" />
 
+## Future Enhancements
 
-Hope you have enjoyed it ...
+- ✅ QR Code scanner for barcode input
 
-Thank You !!
+- ✅ Pagination and search
+
+- ✅ Export product list as PDF or Excel
+
+- ✅ Admin dashboard with analytics
+
+## 🙌 Thank You!
+
+Hope you enjoyed the application! Feel free to fork and enhance it further.
+
+✨ Made with love and Express.js 💚
