@@ -4,30 +4,46 @@ A simple RESTful API with a lightweight web interface to manage products, built 
 
 ## Features
 
-- Full **CRUD operations** on products
-- RESTful API endpoints
-- Beautiful UI using EJS + Bootstrap
-- MongoDB with Mongoose ODM
-- Method override for PUT and DELETE via forms
+- ✅ Full CRUD operations on products
+
+- 🌐 RESTful API endpoints
+
+- 🎨 Beautiful UI using EJS + Bootstrap 5
+
+- 🗄️ MongoDB with Mongoose ODM
+
+- 🔁 Method override for PUT and DELETE via HTML forms
+
+- 🔐 JWT-based user authentication
+
+- 👤 Login, Register & Logout functionality
+
+- 🛡️ Protected routes using middleware
 
 ## Project Structure
 <pre lang="markdown"><code> 
 ``` 
 Rest_API/
 ├── models/
-│   └── Product.js
+│   ├── product.js
+│   └── user.js
 ├── routes/
-│   └── productRoutes.js
+│   ├── productRoutes.js
+│   └── authRoutes.js
+├── middleware/
+│   └── authMiddleware.js
 ├── views/
 │   ├── addProduct.ejs
 │   ├── editProduct.ejs
 │   ├── listProducts.ejs
+│   ├── login.ejs
+│   ├── register.ejs
 │   └── viewProduct.ejs
 ├── .env
 ├── .gitignore
 ├── server.js
 ├── package.json
-├── package-lock.json   
+├── package-lock.json
 └── README.md
 ```</code></pre>
 
@@ -42,22 +58,40 @@ Rest_API/
 - Bootstrap 5
 - method-override
 - dotenv
+- jsonwebtoken (JWT)
+- bcryptjs
+- cookie-parser
 
 ## Here are few glimpses of the project
 
+- Registration Page
+
+<img width="1920" height="1015" alt="Registration Page" src="https://github.com/user-attachments/assets/9700d146-506f-4912-b5da-28d8034b58f2" />
+
+
+- Login Page
+
+<img width="1920" height="1018" alt="Login Page" src="https://github.com/user-attachments/assets/051d27ea-4620-4274-ad16-b8eb3bb2d9ac" />
+
+
+- Add Product Page
+
+<img width="1920" height="1016" alt="Product_Add" src="https://github.com/user-attachments/assets/d3f43ed5-599d-4a1a-a45c-546118d7f441" />
+
+
 - Product Page
 
-<img width="1920" height="1017" alt="Products_Home_Page" src="https://github.com/user-attachments/assets/2217922c-d32c-494d-9fd0-f2d1d0a2ec49" />
+<img width="1920" height="1019" alt="Product" src="https://github.com/user-attachments/assets/4cb4ab48-3833-473b-bc69-fb4f6d25dfaf" />
 
 
-- Product Detail
+- Product Detail Page
 
 <img width="1920" height="1016" alt="Product_Detail" src="https://github.com/user-attachments/assets/e0ac5382-7d8c-4c8a-a3aa-d2201d2b2422" />
 
 
-- Product Edit Page
+- Edit Product Page
 
-<img width="1920" height="1019" alt="Product_Edit_Page" src="https://github.com/user-attachments/assets/399b0eae-3055-4868-8ebf-4d6bf3768eb4" />
+<img width="1920" height="1019" alt="Product_Edit" src="https://github.com/user-attachments/assets/8e7b24ff-6e02-48af-9477-8f2456faaa43" />
 
 
 Hope you have enjoyed it ...
